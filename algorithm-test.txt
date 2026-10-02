@@ -1,0 +1,24 @@
+FUNCTION findMaxInMin(arr, k)
+    n = LENGTH(arr)
+    IF n == 0 OR k <= 0 OR k > n THEN
+        RETURN NULL
+    END IF
+
+    maxOfMin = -INFINITY
+
+    FOR i FROM 0 TO (n - k) DO
+        currentMin = arr[i]
+
+        FOR j FROM (i + 1) TO (i + k - 1) DO
+            IF arr[j] < currentMin THEN
+                currentMin = arr[j]
+            END IF
+        END FOR
+
+        IF currentMin > maxOfMin THEN
+            maxOfMin = currentMin
+        END IF
+    END FOR
+
+    RETURN maxOfMin
+END FUNCTION
